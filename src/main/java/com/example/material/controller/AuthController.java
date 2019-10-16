@@ -1,6 +1,7 @@
 package com.example.material.controller;
 
 
+import com.example.material.constant.CommonConstant;
 import com.example.material.model.AuthInfo;
 import com.example.material.model.UserInfo;
 import com.example.material.service.PasswordTokenGranter;
@@ -27,7 +28,7 @@ import java.io.UnsupportedEncodingException;
 @RestController
 @AllArgsConstructor
 @Slf4j
-@RequestMapping("/api/")
+@RequestMapping(CommonConstant.API_PREFIX)
 public class AuthController {
 
 	@Autowired

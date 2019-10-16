@@ -137,6 +137,17 @@ public class SecureUtil {
 		return null == user ? "" : user.getRoleName();
 	}
 
+	public static String getUserRoleId() {
+		BladeUser user = getUser();
+		return null == user ? "" : user.getRoleId();
+	}
+
+	public static String getUserRoleId(HttpServletRequest request) {
+		BladeUser user = getUser(request);
+		return null == user ? "" : user.getRoleId();
+	}
+
+
 	public static String getTenantId() {
 		BladeUser user = getUser();
 		return null == user ? "" : user.getTenantId();

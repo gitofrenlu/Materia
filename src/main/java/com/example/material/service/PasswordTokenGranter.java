@@ -55,7 +55,6 @@ public class PasswordTokenGranter implements ITokenGranter {
 					userInfo.setRoles(roleAlias);
 				}
 
-				R.data(result);
 			} else if (userType.equals(BladeUserEnum.APP.getName())) {
 				//result = userClient.userInfo(tenantId, account, DigestUtil.encrypt(password));
 			} else {

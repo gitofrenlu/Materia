@@ -16,6 +16,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
 import com.example.material.tools.ObjectUtil;
+import com.example.material.tools.StrFormatter;
 import com.example.material.tools.StrSpliter;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
@@ -121,13 +122,13 @@ public class StringUtil extends StringUtils {
 		}
 	}
 
-	//public static String format(CharSequence template, Object... params) {
-	//	if (null == template) {
-	//		return null;
-	//	} else {
-	//		return !Func.isEmpty(params) && !isBlank(template) ? StrFormatter.format(template.toString(), params) : template.toString();
-	//	}
-	//}
+	public static String format(CharSequence template, Object... params) {
+		if (null == template) {
+			return null;
+		} else {
+			return !Func.isEmpty(params) && !isBlank(template) ? StrFormatter.format(template.toString(), params) : template.toString();
+		}
+	}
 
 	public static String indexedFormat(CharSequence pattern, Object... arguments) {
 		return MessageFormat.format(pattern.toString(), arguments);

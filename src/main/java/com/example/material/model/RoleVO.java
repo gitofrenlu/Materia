@@ -18,7 +18,8 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class MenuVO extends Menu implements INode {
+//@ApiModel(value = "RoleVO对象", description = "RoleVO对象")
+public class RoleVO extends Role implements INode {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -46,22 +47,7 @@ public class MenuVO extends Menu implements INode {
 	}
 
 	/**
-	 * 上级菜单
+	 * 上级角色
 	 */
 	private String parentName;
-
-	/**
-	 * 菜单类型
-	 */
-	private String categoryName;
-
-	/**
-	 * 按钮功能
-	 */
-	private String actionName;
-
-	/**
-	 * 是否新窗口打开
-	 */
-	private String isOpenName;
 }
