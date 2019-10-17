@@ -3,7 +3,10 @@ package com.example.material.model;
 
 import java.time.LocalDateTime;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.material.tools.TenantEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * 实体类
@@ -11,7 +14,9 @@ import lombok.Data;
  * @author Chill
  */
 @Data
-public class User {
+@TableName("blade_user")
+@EqualsAndHashCode(callSuper = true)
+public class User extends TenantEntity {
 
 	private static final long serialVersionUID = 1L;
 

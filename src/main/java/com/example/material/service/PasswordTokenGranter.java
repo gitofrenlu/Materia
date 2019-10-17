@@ -51,7 +51,8 @@ public class PasswordTokenGranter implements ITokenGranter {
 				log.info("tenantId: %s account: %s  password: %s",tenantId,account,password);
 				userInfo.setUser(result);
 				if (Func.isNotEmpty(result)) {
-					List<String> roleAlias = userMapper.getRoleAlias(result.getRoleId());
+
+					List<String> roleAlias = userMapper.getRoleAlias(Func.toStrArray(result.getRoleId()));
 					userInfo.setRoles(roleAlias);
 				}
 
