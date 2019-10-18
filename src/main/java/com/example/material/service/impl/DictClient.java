@@ -2,7 +2,7 @@
 package com.example.material.service.impl;
 
 
-import com.example.material.entity.Dict;
+import com.example.material.model.Dict;
 import com.example.material.service.IDictClient;
 import com.example.material.service.IDictService;
 import com.example.material.utils.R;

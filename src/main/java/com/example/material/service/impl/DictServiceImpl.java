@@ -22,8 +22,8 @@ import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 
-import com.example.material.entity.Dict;
 import com.example.material.mapper.DictMapper;
+import com.example.material.model.Dict;
 import com.example.material.model.DictVO;
 import com.example.material.service.IDictService;
 import com.example.material.tools.ForestNodeMerger;

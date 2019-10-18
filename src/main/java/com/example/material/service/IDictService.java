@@ -19,7 +19,7 @@ import java.util.List;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.example.material.entity.Dict;
+import com.example.material.model.Dict;
 import com.example.material.model.DictVO;
 
 /**

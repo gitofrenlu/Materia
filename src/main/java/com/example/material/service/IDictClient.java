@@ -2,7 +2,7 @@
 package com.example.material.service;
 
 
-import com.example.material.entity.Dict;
+import com.example.material.model.Dict;
 import com.example.material.utils.R;
 import org.springframework.web.bind.annotation.RequestParam;
 

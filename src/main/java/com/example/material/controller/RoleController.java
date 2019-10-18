@@ -11,6 +11,7 @@ import com.example.material.constant.CommonConstant;
 import com.example.material.model.BladeUser;
 import com.example.material.model.Role;
 import com.example.material.model.RoleVO;
+import com.example.material.secure.SecureUtil;
 import com.example.material.service.IRoleService;
 import com.example.material.tools.Condition;
 import com.example.material.tools.INode;
@@ -57,8 +58,9 @@ public class RoleController extends BladeController {
 	//})
 	//@ApiOperationSupport(order = 2)
 	//@ApiOperation(value = "列表", notes = "传入role")
-	public R<List<INode>> list(@RequestParam Map<String, Object> role, BladeUser bladeUser) {
+	public R<List<INode>> list(@RequestParam Map<String, Object> role) {
 		QueryWrapper<Role> queryWrapper = Condition.getQueryWrapper(role, Role.class);
+		BladeUser bladeUser = SecureUtil.getUser();
 		List<Role> list = roleService.list((!bladeUser.getTenantId().equals(CommonConstant.ADMIN_TENANT_ID)) ? queryWrapper.lambda().eq(Role::getTenantId, bladeUser.getTenantId()) : queryWrapper);
 		return R.data(RoleWrapper.build().listNodeVO(list));
 	}
