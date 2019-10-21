@@ -60,8 +60,7 @@ public class RoleController extends BladeController {
 	//@ApiOperation(value = "列表", notes = "传入role")
 	public R<List<INode>> list(@RequestParam Map<String, Object> role) {
 		QueryWrapper<Role> queryWrapper = Condition.getQueryWrapper(role, Role.class);
-		BladeUser bladeUser = SecureUtil.getUser();
-		List<Role> list = roleService.list((!bladeUser.getTenantId().equals(CommonConstant.ADMIN_TENANT_ID)) ? queryWrapper.lambda().eq(Role::getTenantId, bladeUser.getTenantId()) : queryWrapper);
+		List<Role> list = roleService.list(queryWrapper);
 		return R.data(RoleWrapper.build().listNodeVO(list));
 	}
 

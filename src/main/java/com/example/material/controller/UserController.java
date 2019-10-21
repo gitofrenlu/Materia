@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.example.material.constant.CommonConstant;
 
 import com.example.material.model.BladeUser;
@@ -62,13 +63,8 @@ public class UserController {
 	//@ApiOperation(value = "列表", notes = "传入account和realName")
 	public R<IPage<UserVO>> list(@RequestParam Map<String, Object> user, Query query) {
 		QueryWrapper<User> queryWrapper = Condition.getQueryWrapper(user, User.class);
-		BladeUser bladeUser = SecureUtil.getUser();
-		bladeUser.setTenantId("000000");
 		IPage<User> pages = userService.page(
-				Condition.getPage(query),
-				(!bladeUser.getTenantId().equals(CommonConstant.ADMIN_TENANT_ID)) ?
-				queryWrapper.lambda().eq(User::getTenantId, bladeUser.getTenantId())
-				:queryWrapper);
+				Condition.getPage(query),queryWrapper);
 		return R.data(UserWrapper.build().pageVO(pages));
 	}
 

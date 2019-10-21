@@ -57,8 +57,7 @@ public class TenantController  {
 	//@ApiOperation(value = "分页", notes = "传入tenant")
 	public R<IPage<Tenant>> list(@RequestParam Map<String, Object> tenant, Query query) {
 		QueryWrapper<Tenant> queryWrapper = Condition.getQueryWrapper(tenant, Tenant.class);
-		BladeUser bladeUser = SecureUtil.getUser();
-		IPage<Tenant> pages = tenantService.page(Condition.getPage(query), (!bladeUser.getTenantId().equals(CommonConstant.ADMIN_TENANT_ID)) ? queryWrapper.lambda().eq(Tenant::getTenantId, bladeUser.getTenantId()) : queryWrapper);
+		IPage<Tenant> pages = tenantService.page(Condition.getPage(query), queryWrapper);
 		return R.data(pages);
 	}
 

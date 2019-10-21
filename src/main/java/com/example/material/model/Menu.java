@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.example.material.utils.Func;
 
@@ -97,7 +98,7 @@ public class Menu implements Serializable {
 	/**
 	 * 是否已删除
 	 */
-	//@TableLogic
+	@TableLogic
 	//@ApiModelProperty(value = "是否已删除")
 	private Integer isDeleted;
 
